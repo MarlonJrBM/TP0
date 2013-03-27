@@ -50,11 +50,11 @@ listaPontos* InserePontoLista(listaPontos* lista, double x, double y)
                     aux2 = aux->prox;
                 }
                 aux->prox = novo;
-                return lista;
+                
             }
             
         }
- 
+ 	return lista;
     }
 
 }
@@ -88,10 +88,10 @@ void ImprimeListaArquivo(FILE* arquivo, listaPontos *lista)
     if (lista==NULL) return;
     while (aux->prox!=NULL)
     {
-        fprintf(arquivo,"%lf %lf, ", aux->x, aux->y);
+        fprintf(arquivo,"%.1lf %.1lf, ", aux->x, aux->y);
         aux = aux->prox;
     }
-    fprintf(arquivo,"%lf %lf\n", aux->x, aux->y);
+    fprintf(arquivo,"%.1lf %.1lf\n", aux->x, aux->y);
 }
 
 int numElementosLista(listaPontos* lista)

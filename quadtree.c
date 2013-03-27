@@ -57,16 +57,26 @@ void LiberaArvoreAux(nodeArvore* q1, nodeArvore* q2, nodeArvore* q3, nodeArvore*
 
 void InserePonto (quadTree *arvore, double x, double y)
 {
-
+    if ((x>arvore->xMax) || (x<0)) return;
+    if ((y>arvore->yMax) || (y<0)) return;
     InserePontoAux(arvore,x,y,arvore->raiz);
     arvore->tamanho++;
 }
 
 listaPontos* ConsultaArvore(quadTree *arvore, double x1, double y1, double x2, double y2)
 {
+//IMPORTANTE: A consulta só funciona se os pontos passados forem os vértices sudoeste e nordeste do retângulo!
     listaPontos* lista = NULL;
+    double x1R = x1, y1R = y1, x2R = x2, y2R = y2;
+    if (x1>x2)
+    {
+        x1R = x2;
+        x2R = x1;
+        y1R = y2;
+        y2R = y1;
+    }
  
-    lista = ConsultaArvoreAux(arvore->raiz, lista, x1, y1, x2, y2 );
+    lista = ConsultaArvoreAux(arvore->raiz, lista, x1R, y1R, x2R, y2R );
     return lista;
     
 }
@@ -118,8 +128,3 @@ int FazIntersecao(double intervalo1Inicio, double intervalo1Fim, double interval
     else return 0;
             
 }
-
-
-
-
-

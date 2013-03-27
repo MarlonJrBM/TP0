@@ -8,18 +8,7 @@
 #ifndef QUADTREE_H
 #define	QUADTREE_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
 
-
-
-
-#ifdef	__cplusplus
-}
-#endif
-
-#endif	/* QUADTREE_H */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -115,3 +104,5 @@ listaPontos* ConsultaArvoreAux(nodeArvore *node, listaPontos* resposta, double x
 
 int FazIntersecao(double intervalo1Inicio, double intervalo1Fim, double intervalo2Inicio, double intervalo2Fim);
 //Função auxiliar para a função de consulta. Retorna verdadeiro se a a interseção entre dois conjuntos for diferente de zero
+
+#endif	/* QUADTREE_H */
